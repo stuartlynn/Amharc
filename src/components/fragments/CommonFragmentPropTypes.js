@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 
 export default {
-  frangmentID: PropTypes.string.isRequired,
-  fragmentType: PropTypes.string.isRequired,
-  onValueChanged: PropTypes.func.isRequired,
-  collectionName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 }
 
