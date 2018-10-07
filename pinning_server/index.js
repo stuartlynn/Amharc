@@ -5,7 +5,7 @@ console.log('Orbit db version ', OrbitDB.__version__)
 console.log('IPFS version ', IPFS.__version__)
 
 const ipfsOptions = {
-  repo: 'datacollectionapp',
+  repo: 'data/datacollectionapp',
   start: true,
   EXPERIMENTAL: {
     pubsub: true,
