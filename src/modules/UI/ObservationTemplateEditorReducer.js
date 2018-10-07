@@ -1,4 +1,4 @@
-import Fragments from '../Components/Fragments/Fragments';
+import Fragments from '../../components/fragments';
 
 const base = 'OBSERVATION_EDITOR';
 
