@@ -9,7 +9,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PersonIcon from '@material-ui/icons/Person';
 import BallotIcon from '@material-ui/icons/Ballot';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router'
 
 class BottomNav extends Component {
   static propTypes = {
@@ -28,6 +28,10 @@ class BottomNav extends Component {
 			case 'contributions':
 				this.props.history.push('/contributions')
 				break
+
+			case 'ipfs':
+				this.props.history.push('/ipfs')
+				break
 		}
   }
 
@@ -36,17 +40,16 @@ class BottomNav extends Component {
 		this.handleChange= this.handleChange.bind(this)
 	}
   segmentForPath() {
-		console.log(this.props.path)
-    if (this.props.path.includes('projects')) {
+    const pathname = this.props.location.pathname
+    if (pathname.includes('projects')) {
       return 'projects';
-    } else if (this.props.path.includes('contributions')) {
+    } else if (pathname.includes('contributions')) {
       return 'contributions';
-    } else if (this.props.path.includes('profile')) {
+    } else if (pathname.includes('profile')) {
       return 'profile';
     }
   }
   render() {
-		console.log(this.segmentForPath())
     return (
       <BottomNavigation
         value={this.segmentForPath()}
@@ -67,15 +70,15 @@ class BottomNav extends Component {
           label="Profile"
           icon={<PersonIcon />}
         />
+        <BottomNavigationAction
+          value="ipfs"
+          label="ipfs"
+          icon={<PersonIcon />}
+        />
       </BottomNavigation>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    path: state.routing.location.pathname,
-  };
-};
 
-export default connect(mapStateToProps)(withRouter(BottomNav));
+export default withRouter(connect()(BottomNav));
