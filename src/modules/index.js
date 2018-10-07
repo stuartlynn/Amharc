@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
 import ui from './UI'
+import backend from '../backends/Orbit/reducer'
 import data from './data'
 
 export default combineReducers({
-    routing: routerReducer,
     ui: ui,
-    data: data
+    data: data,
+    backend: backend
 })
