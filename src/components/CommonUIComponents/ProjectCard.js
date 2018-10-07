@@ -33,10 +33,15 @@ const ProjectCard = ({...props}) => {
             <Button size="small" color="primary">
               Contribute
             </Button>
+          </Link>
+          <Link to={`/projects/${props.id}`}>
             <Button size="small" color="primary">
               Learn More
             </Button>
           </Link>
+          <Button onClick={props.onDelete} size="small" color="primary">
+            Delete
+          </Button>
         </CardActions>
       </CardContent>
     </Card>
