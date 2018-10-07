@@ -1,8 +1,12 @@
+import uuidv1 from 'uuid/v1';
+import {saveResource} from '../../backends/Orbit/reducer'
+
 export const CREATE_PROJECT = 'data/Projects/CREATE_PROJECTS';
+export const SYNC_PROJECTS= 'data/Projects/SYNC';
 
 const initalState = [
   {
-    id: '1',
+    id: '3a1e5f00-b855-11e8-8af2-13daa980e170',
     name: 'Bushwick gentrification resistance',
     aim: `We have been seeing an increased number of residents targetd for buyouts in
     the neighborhood. As a results we want to minitor the coordinated efforts of
@@ -17,7 +21,7 @@ const initalState = [
     projectCoordinators: [1, 2],
   },
   {
-    id: '2',
+    id: '484fa430-b855-11e8-8af2-13daa980e170',
     name: `Newtown Creek polution survey`,
     aim: `Better understand the spread of a speciic type of bacteria in New Town Creek`,
     desiredOutcome: `Collect longitudional data about the spread of the bacteria and
@@ -33,16 +37,21 @@ export default (state = initalState, action) => {
   switch (action.type) {
     case CREATE_PROJECT:
       return [...state, action.project];
+    case SYNC_PROJECTS:
+      return action.records
     default:
       return state;
   }
 };
 
 export const createProject = (project, user) => {
+  const id = uuidv1();
+  const projectWithID =  {...project, observationTemplates: [], id}
   return (dispatch, getState) => {
     dispatch({
       type: CREATE_PROJECT,
-      project,
+      project: projectWithID,
     });
+    saveResource('Projects',projectWithID)(dispatch)
   };
 };

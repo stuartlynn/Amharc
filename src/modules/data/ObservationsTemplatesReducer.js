@@ -5,7 +5,7 @@ const initalState = [
     type: 'In person collection',
     description: `We need people to collect information on potential buy out offers in
     the neighborhood.`,
-    fragemntTemplates: [1, 2, 3, 4, 5],
+    fragmentTemplates: [1, 2, 3, 4, 5,8],
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const initalState = [
     type: 'Email Survey',
     description: `A survey to send out to residents to ask about landlord tactics
     being used`,
-    fragemntTemplates: [1, 7, 6],
+    fragmentTemplates: [1, 7, 6],
   },
 
   {
@@ -22,7 +22,7 @@ const initalState = [
     type: 'In person collection',
     description: `We are collecting samples from the river to determine what the
     ecoli levels are`,
-    fragemntTemplates: [],
+    fragmentTemplates: [],
   },
 
   {
@@ -31,7 +31,7 @@ const initalState = [
     type: 'In person Collection',
     description: `We are asking residents who live by the creek some questions about
     their experince there`,
-    fragemntTemplates: [],
+    fragmentTemplates: [],
   },
 ];
 
