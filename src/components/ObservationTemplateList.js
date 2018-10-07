@@ -8,6 +8,7 @@ class ObservationTemplateList extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    observationTemplates: PropTypes.array.isRequired
   };
 
   constructor(props) {
@@ -18,8 +19,8 @@ class ObservationTemplateList extends Component {
     return (
       <div>
         {this.props.observationTemplates.map(obs => (
-          <div>
-            <Link to={`/observationRunnner/${obs.id}`}>
+          <div key={obs.id}>
+            <Link to={`/projects/${this.props.projectId}/makeObservation/${obs.id}`}>
               <Typography component="h2" variant="headline">
                 {obs.name}
               </Typography>
