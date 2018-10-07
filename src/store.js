@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
+import { createBrowserHistory } from 'history'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+
 //import { persistStore, persistReducer } from 'redux-persist'
 //import storage from 'redux-persist/lib/storage'
 //import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 
-export const history = createHistory()
+export const history = createBrowserHistory()
 export const initialState={}
 
 //const persistConfig = {
@@ -39,9 +41,10 @@ const composedEnhancers = compose(
 
 const store = createStore(
   //persistedReducer,
-  rootReducer,
+  connectRouter(history)(rootReducer),
   initialState,
   composedEnhancers
 )
+
 
 export default store
