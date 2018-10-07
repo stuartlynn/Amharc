@@ -6,7 +6,7 @@ export const FragmentVersion = '1.0'
 
 export const RangeFragmentPropTypes = {
   ...CommonFragmentPropTypes,
-  propmpt: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
   icon: PropTypes.string,
   max:PropTypes.number,
   min:PropTypes.number,
